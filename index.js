@@ -35,7 +35,7 @@ app.post(URI,async (req,res) =>{
 const init = async () => {
     try{
         const res = await axios.get(`${TELEGRAM_API}/setWebhook?url=${WEBHOOK_URL}`,{
-            headers: {
+            params: {
                 "X-Telegram-Bot-Api-Secret-Token" : "Pranav"
             }
         })
