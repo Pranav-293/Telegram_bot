@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 
 app.post(URI,async (req,res) =>{
     console.log(req.body);
+    console.log(req.params);
 
     const chatId = req.body.message.chat.id
     const text = req.body.message.text
