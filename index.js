@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 app.post(URI,async (req,res) =>{
     console.log(req.body);
-    console.log(req.params);
+    console.log(req.headers);
 
     const chatId = req.body.message.chat.id
     const text = req.body.message.text
@@ -34,7 +34,11 @@ app.post(URI,async (req,res) =>{
 
 const init = async () => {
     try{
-        const res = await axios.get(`${TELEGRAM_API}/setWebhook?url=${WEBHOOK_URL}`)
+        const res = await axios.get(`${TELEGRAM_API}/setWebhook?url=${WEBHOOK_URL}`,{
+            headers: {
+                "X-Telegram-Bot-Api-Secret-Token" : "Pranav"
+            }
+        })
         console.log(res.data);
     }
     catch(e){
